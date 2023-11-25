@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Module 1 on My New Hugo Site</title>
+    <link>https://example.org/module1/index.html</link>
+    <description>Recent content in Module 1 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Nov 2023 00:27:50 +0530</lastBuildDate>
+    <atom:link href="https://example.org/module1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1. Install Kuma Control Plane</title>
+      <link>https://example.org/module1/1.install-kuma-control-plane/index.html</link>
+      <pubDate>Sun, 26 Nov 2023 00:27:50 +0530</pubDate>
+      <guid>https://example.org/module1/1.install-kuma-control-plane/index.html</guid>
+      <description>Let’s deploy a sample shopping website. Clone this repository by running the following command
+git clone https://github.com/pamruthav/Kubecon-CFP-2024-Kuma-Mesh.git Run the following kubectl command to deploy the sample application
+kubectl apply -f demo-app.yaml Front-end UI of this app can be accessed on http://localhost:8080, port-forward your frontend service
+kubectl port-forward service/frontend -n kuma-demo 8080 Port-forward the kuma-control-plane service in the kuma-system namespace and access here http://localhost:5681/gui/
+kubectl port-forward service/kuma-control-plane -n kuma-system 5681 The current state of this application involves operating WITHOUT Kuma.</description>
+    </item>
+    <item>
+      <title>2. Kuma Policies</title>
+      <link>https://example.org/module1/2.kuma-policies/index.html</link>
+      <pubDate>Sun, 26 Nov 2023 00:27:50 +0530</pubDate>
+      <guid>https://example.org/module1/2.kuma-policies/index.html</guid>
+      <description>mTLS Traffic Permissions enable you to control service communication, enhancing mesh security. You can specify which source services are permitted to consume particular destination services, with the service field being mandatory in both sources and destinations. Kuma includes a default traffic permission called allow-all-default
+mTLS can be enabled using the below command
+cat &amp;lt;&amp;lt;EOF | kubectl apply -f - apiVersion: kuma.io/v1alpha1 kind: Mesh metadata: name: default spec: mtls: enabledBackend: ca-1 backends: - name: ca-1 type: builtin EOFImplementing this will make no difference.</description>
+    </item>
+    <item>
+      <title>3. Kuma Traffic Permissions</title>
+      <link>https://example.org/module1/3.kuma-traffic-permissions/index.html</link>
+      <pubDate>Sun, 26 Nov 2023 00:27:50 +0530</pubDate>
+      <guid>https://example.org/module1/3.kuma-traffic-permissions/index.html</guid>
+      <description>Traffic Permissions Adding Granular Traffic Permissions Apply the following three policies: The first permits communication from the Kong service to the frontend. The second allows the frontend to communicate with the backend. The third enables communication from the backend to PostgreSQL. By withholding permissions for Redis, traffic to that service will not be allowed. This means that in the UI, all functionalities will operate except for the reviews.
+cat &amp;lt;&amp;lt;EOF | kubectl apply -f - apiVersion: kuma.</description>
+    </item>
+    <item>
+      <title>4. Kuma Traffic Routing</title>
+      <link>https://example.org/module1/4.kuma-traffic-routing/index.html</link>
+      <pubDate>Sun, 26 Nov 2023 00:27:50 +0530</pubDate>
+      <guid>https://example.org/module1/4.kuma-traffic-routing/index.html</guid>
+      <description>Traffic Routing Traffic Routing policies enable the configuration of routing rules for L4 traffic, such as blue/green deployments and canary releases. Kuma facilitates traffic routing by matching tags assigned to Dataplane resources.
+During the earlier application deployment, three versions of the backend application were manifested: backend, backend-v1, and backend-v2. The original backend service functions as a standard marketplace. Backend-v1 features one sale on the front page, while backend-v2 showcases two sales.</description>
+    </item>
+    <item>
+      <title>5. Kuma Health Check</title>
+      <link>https://example.org/module1/5.kuma-health-check/index.html</link>
+      <pubDate>Sun, 26 Nov 2023 00:27:50 +0530</pubDate>
+      <guid>https://example.org/module1/5.kuma-health-check/index.html</guid>
+      <description>Health Check The objective of Health Checks is to reduce the occurrence of failed requests caused by the temporary unavailability of a target endpoint. By implementing a Health Check policy, you instruct a data plane proxy to monitor the health statuses of target endpoints. The dataplane ensures it doesn&amp;rsquo;t send requests to an endpoint marked as &amp;ldquo;unhealthy.&amp;rdquo;
+cat &amp;lt;&amp;lt;EOF | kubectl apply -f - apiVersion: kuma.io/v1alpha1 kind: HealthCheck metadata: name: frontend-to-backend namespace: kuma-demo mesh: default spec: sources: - match: kuma.</description>
+    </item>
+    <item>
+      <title>6. Kuma Traffic Metrics</title>
+      <link>https://example.org/module1/6.kuma-traffic-metrics/index.html</link>
+      <pubDate>Sun, 26 Nov 2023 00:27:50 +0530</pubDate>
+      <guid>https://example.org/module1/6.kuma-traffic-metrics/index.html</guid>
+      <description>Traffic Metrics (Observability) By default, Kuma seamlessly integrates with Prometheus and Grafana. Once enabled, each data plane proxy exposes its metrics in Prometheus format. Additionally, Kuma ensures that Prometheus can effortlessly discover every data plane proxy within the mesh.
+kumactl install observability | kubectl apply -f -
+Verify by running the following command
+kubectl get pods -n mesh-observability
+Kuma ensures consistent traffic metrics across all data plane proxies in the mesh.</description>
+    </item>
+    <item>
+      <title>7. Kuma Traffic Logs</title>
+      <link>https://example.org/module1/7.kuma-traffic-logs/index.html</link>
+      <pubDate>Sun, 26 Nov 2023 00:27:50 +0530</pubDate>
+      <guid>https://example.org/module1/7.kuma-traffic-logs/index.html</guid>
+      <description>Traffic Logs (Observability) Configure logging backends for use in the Mesh. A logging backend serves as a destination for access logs. In the present version of Kuma, logging backends can be either a file or a TCP log collector, like Logstash. Let’s use the file (stdout) in our demo.
+We need to configure the Mesh object to include what we want logged
+cat &amp;lt;&amp;lt;EOF | kubectl apply -f - apiVersion: kuma.</description>
+    </item>
+  </channel>
+</rss>

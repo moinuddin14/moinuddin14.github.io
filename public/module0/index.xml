@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Module 0 on My New Hugo Site</title>
+    <link>https://example.org/module0/index.html</link>
+    <description>Recent content in Module 0 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Nov 2023 00:27:50 +0530</lastBuildDate>
+    <atom:link href="https://example.org/module0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1. Service Mesh Intro</title>
+      <link>https://example.org/module0/1-service-mesh/index.html</link>
+      <pubDate>Sun, 26 Nov 2023 00:25:49 +0530</pubDate>
+      <guid>https://example.org/module0/1-service-mesh/index.html</guid>
+      <description>What is a Service Mesh As organizations transition from monolithic to microservices architectures, they face challenges related to service-to-service communication, observability, security, and resilience. A service mesh addresses these challenges by providing a dedicated infrastructure layer for managing and controlling communication between microservices.
+Service mesh is a microservices architecture solution designed to streamline the challenges of complex service communication. Service mesh addresses issues like service discovery, load balancing, security, and observability.</description>
+    </item>
+    <item>
+      <title>2. About Kuma</title>
+      <link>https://example.org/module0/2-about-kuma/index.html</link>
+      <pubDate>Sun, 26 Nov 2023 00:27:50 +0530</pubDate>
+      <guid>https://example.org/module0/2-about-kuma/index.html</guid>
+      <description>Kuma makes modern digital applications work better, by using a Service Mesh framework, where sidecar proxies run next to services, and a control plane sets up these proxies automatically. This helps solve problems with network issues, making sure users have a good experience and keeping things secure.
+The sidecar proxy model has a separate process that handles connections and observability, so developers can focus on their services without worrying about the network details.</description>
+    </item>
+    <item>
+      <title>3. Kuma Architecture</title>
+      <link>https://example.org/module0/3-kuma-architecture/index.html</link>
+      <pubDate>Sun, 26 Nov 2023 00:27:50 +0530</pubDate>
+      <guid>https://example.org/module0/3-kuma-architecture/index.html</guid>
+      <description>A Kuma mesh comprises two main components: the data plane, which consists of Envoy proxies running alongside services to manage mesh traffic, and the control plane, which configures the data plane proxies without directly interacting with mesh traffic. Kuma supports multi-mesh deployments, reducing complexity and operational costs.
+Communication occurs between the control plane and data plane, as well as between services and their proxies, facilitated by Envoy xDS APIs for configuration retrieval.</description>
+    </item>
+    <item>
+      <title>4. Kuma Deployment Topologies</title>
+      <link>https://example.org/module0/4-kuma-deployment-topologies/index.html</link>
+      <pubDate>Sun, 26 Nov 2023 00:27:50 +0530</pubDate>
+      <guid>https://example.org/module0/4-kuma-deployment-topologies/index.html</guid>
+      <description>Standalone The standalone deployment mode for Kuma is the default and simplest option. In this mode
+Control Plane One deployment of the control plane that can be horizontally scaled. Manages connections from data plane proxies. Handles policy creation and changes for data plane proxies. Maintains an inventory of running data plane proxies. Computes and sends configurations using XDS (Discovery Service) to data plane proxies. Data Plane Proxies Connect to the control plane, regardless of their deployment location.</description>
+    </item>
+    <item>
+      <title>5. Kuma Policies</title>
+      <link>https://example.org/module0/5-kuma-policies/index.html</link>
+      <pubDate>Sun, 26 Nov 2023 00:27:50 +0530</pubDate>
+      <guid>https://example.org/module0/5-kuma-policies/index.html</guid>
+      <description>Policies refer to configurations and rules that govern the behaviour of the service mesh. They help define how traffic is routed, secured, and observed within the distributed system. They include a variety of settings and configurations, depending on the specific requirements of your application and infrastructure.Common types of policies in Kuma include
+Traffic Routing Policies These are essential in a service mesh for managing how traffic flows through the network. They can include rules for load balancing, traffic splitting, and routing based on various criteria like HTTP paths or headers.</description>
+    </item>
+  </channel>
+</rss>
