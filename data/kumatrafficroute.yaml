@@ -1,0 +1,21 @@
+apiVersion: kuma.io/v1alpha1
+kind: TrafficRoute
+metadata:
+  name: service-route
+  mesh: default
+spec:
+  sources:
+    - match:
+        kuma.io/service: service
+  destinations:
+    - match:
+        kuma.io/service: service
+  conf:
+    - weight: 80
+      destination:
+        kuma.io/service: service
+        version: v1
+    - weight: 20
+      destination:
+        kuma.io/service: service
+        version: v2
