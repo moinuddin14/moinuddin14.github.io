@@ -4,4 +4,6 @@ title = "Module 4"
 weight = 5
 +++
 
-Lorem Ipsum.
+# Kong Default and Custom Plugins
+
+### This module is under development

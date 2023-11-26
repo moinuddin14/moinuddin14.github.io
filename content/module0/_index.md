@@ -11,3 +11,6 @@ In this module, we will learn about service mesh in general and deep dive into K
 - Kuma Architecture
 - Kuma Deployment Topologies
 - Kuma Policies
+
+{{% button href="https://gohugo.io/" %}}Get Hugo{{% /button %}}
+{{% button href="https://gohugo.io/" style="warning" icon="dragon" %}}Get Hugo{{% /button %}}
